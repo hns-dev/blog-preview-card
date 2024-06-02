@@ -1,0 +1,165 @@
+:root {
+  /* colors */
+  --yellow: hsl(47, 88%, 63%);
+  --white: hsl(0, 0%, 100%);
+  --grey: hsl(0, 0%, 50%);
+  --black: hsl(0, 0%, 7%);
+
+  /* Caligraphy */
+  --heading-size: 1.5rem; /*24px for large screens*/
+  --heading-size-ss: 1.25rem; /*20px for small screens (ss)*/
+
+  --body-M-size: 1rem; /*16px for large screens*/
+  --body-M-size-ss: 0.875rem; /*14px for small screens*/
+
+  --body-S-size: 0.875rem; /*14px for large screens*/
+  --body-S-size-ss: 0.75rem; /*12px for small screens*/
+
+  --font-weight-800: 800;
+  --font-weight-500: 500;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("./assets/fonts/Figtree-VariableFont_wght.ttf") format("truetype");
+}
+
+/* ======== Reset ======== */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  /* line-height: 1.5; */
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  text-decoration: none;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* ======== Customized CSS ======== */
+body {
+  font-size: clamp(var(--body-M-size-ss), 3vw, var(--body-M-size));
+  font-family: "Figtree", sans-serif;
+  color: var(--black);
+  background-color: var(--yellow);
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+a {
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: var(--yellow);
+  cursor: pointer;
+}
+
+.blog {
+  border-radius: 20px;
+  border: 1px solid var(--black);
+  box-shadow: 8px 8px 0 var(--black);
+  padding: 1.5rem;
+  background-color: var(--white);
+  max-width: 384px;
+}
+
+.blog > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.blog-img {
+  border-radius: 10px;
+}
+
+.blog .content > *:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.blog .category {
+  display: inline-block;
+  background-color: var(--yellow);
+  border-radius: 4px;
+  padding: 0.25em 0.75em;
+}
+
+.blog .description {
+  color: var(--grey);
+}
+
+/* blog footer */
+.blog .author {
+  display: flex;
+  align-items: center;
+}
+
+.blog .author > *:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.blog .author-img {
+  width: 32px;
+  /* height: 32px; */
+  aspect-ratio: 1 / 1;
+}
+
+/* Typography */
+.blog .title {
+  font-size: clamp(var(--heading-size-ss), 5vw, var(--heading-size));
+}
+
+.blog .category,
+.blog .publish-date {
+  font-size: clamp(var(--body-S-size-ss), 3vw, var(--body-S-size));
+}
+
+.blog .author-name,
+.blog .category,
+.blog .title {
+  font-weight: var(--font-weight-800);
+}
+
+.blog .publish-date,
+.blog .description {
+  font-weight: var(--font-weight-500);
+}
